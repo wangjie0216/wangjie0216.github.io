@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>electron的Notification问题 | 桃花源记</title>
+    <meta name="description" content="少一些功利主义的追求，多一些不为什么的坚持">
+    <link rel="icon" href="/head.png">
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    
+    <link rel="preload" href="/assets/css/0.styles.9783eb07.css" as="style"><link rel="preload" href="/assets/js/app.4991ce2a.js" as="script"><link rel="preload" href="/assets/js/4.eb20ff82.js" as="script"><link rel="preload" href="/assets/js/1.c26689c7.js" as="script"><link rel="preload" href="/assets/js/19.7ae37306.js" as="script"><link rel="prefetch" href="/assets/js/10.fec316ef.js"><link rel="prefetch" href="/assets/js/11.2faff00b.js"><link rel="prefetch" href="/assets/js/12.bdea22a9.js"><link rel="prefetch" href="/assets/js/13.b25062d3.js"><link rel="prefetch" href="/assets/js/14.8ee493d1.js"><link rel="prefetch" href="/assets/js/15.c87d09bd.js"><link rel="prefetch" href="/assets/js/16.0e5d7b1b.js"><link rel="prefetch" href="/assets/js/17.cb88264c.js"><link rel="prefetch" href="/assets/js/18.95940fdf.js"><link rel="prefetch" href="/assets/js/20.3a1c0cdf.js"><link rel="prefetch" href="/assets/js/21.309c9962.js"><link rel="prefetch" href="/assets/js/22.2cf39a6b.js"><link rel="prefetch" href="/assets/js/23.797596ba.js"><link rel="prefetch" href="/assets/js/24.52ad01db.js"><link rel="prefetch" href="/assets/js/25.89322176.js"><link rel="prefetch" href="/assets/js/26.e6178d99.js"><link rel="prefetch" href="/assets/js/27.88113fe5.js"><link rel="prefetch" href="/assets/js/28.dfcf96d9.js"><link rel="prefetch" href="/assets/js/29.ee9a83b5.js"><link rel="prefetch" href="/assets/js/30.d7601e9b.js"><link rel="prefetch" href="/assets/js/31.56562041.js"><link rel="prefetch" href="/assets/js/32.75a02c6e.js"><link rel="prefetch" href="/assets/js/33.10383dac.js"><link rel="prefetch" href="/assets/js/34.4c4e6aa8.js"><link rel="prefetch" href="/assets/js/35.8b6bf70d.js"><link rel="prefetch" href="/assets/js/36.433d8d02.js"><link rel="prefetch" href="/assets/js/5.035bbc89.js"><link rel="prefetch" href="/assets/js/6.5d28e7a8.js"><link rel="prefetch" href="/assets/js/7.fbe61c0c.js"><link rel="prefetch" href="/assets/js/8.2dc24ec9.js"><link rel="prefetch" href="/assets/js/9.1fd65d4c.js"><link rel="prefetch" href="/assets/js/vendors~flowchart.6674ed3c.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.9783eb07.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div><div class="theme-container"><div><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/head.png" alt="桃花源记" class="logo"> <span class="site-name">桃花源记</span></a> <div class="links"><div class="color-picker"><a href="#" class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="theme-options"><!----> <div class="dark-theme-options toggle-option"><label for="dark-theme-toggle">Enable Dark Theme?</label> <input id="dark-theme-toggle" type="checkbox" checked="checked"></div></div></div></div> <div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      分类
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/category/css.html" class="nav-link"><i class="iconfont undefined"></i>
+  css
+</a></li><li class="dropdown-item"><!----> <a href="/category/flutter.html" class="nav-link"><i class="iconfont undefined"></i>
+  flutter
+</a></li><li class="dropdown-item"><!----> <a href="/category/日常bug处理.html" class="nav-link"><i class="iconfont undefined"></i>
+  日常bug处理
+</a></li><li class="dropdown-item"><!----> <a href="/category/js.html" class="nav-link"><i class="iconfont undefined"></i>
+  js
+</a></li><li class="dropdown-item"><!----> <a href="/category/electron-vue.html" class="nav-link"><i class="iconfont undefined"></i>
+  electron-vue
+</a></li><li class="dropdown-item"><!----> <a href="/category/http.html" class="nav-link"><i class="iconfont undefined"></i>
+  http
+</a></li><li class="dropdown-item"><!----> <a href="/category/git.html" class="nav-link"><i class="iconfont undefined"></i>
+  git
+</a></li><li class="dropdown-item"><!----> <a href="/category/随笔.html" class="nav-link"><i class="iconfont undefined"></i>
+  随笔
+</a></li><li class="dropdown-item"><!----> <a href="/category/每日英语.html" class="nav-link"><i class="iconfont undefined"></i>
+  每日英语
+</a></li><li class="dropdown-item"><!----> <a href="/category/typeScript学习笔记.html" class="nav-link"><i class="iconfont undefined"></i>
+  typeScript学习笔记
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  标签
+</a></div><div class="nav-item"><a href="/timeLine/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间线
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      联系我吧
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/wangjie0216" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://www.jianshu.com/u/78d745feebc2" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-jianshu"></i>
+  简书
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://mp.weixin.qq.com/s/bvtwABoGzU9GBGaqc6i7nA" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-wechat"></i>
+  WeChat
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      分类
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/category/css.html" class="nav-link"><i class="iconfont undefined"></i>
+  css
+</a></li><li class="dropdown-item"><!----> <a href="/category/flutter.html" class="nav-link"><i class="iconfont undefined"></i>
+  flutter
+</a></li><li class="dropdown-item"><!----> <a href="/category/日常bug处理.html" class="nav-link"><i class="iconfont undefined"></i>
+  日常bug处理
+</a></li><li class="dropdown-item"><!----> <a href="/category/js.html" class="nav-link"><i class="iconfont undefined"></i>
+  js
+</a></li><li class="dropdown-item"><!----> <a href="/category/electron-vue.html" class="nav-link"><i class="iconfont undefined"></i>
+  electron-vue
+</a></li><li class="dropdown-item"><!----> <a href="/category/http.html" class="nav-link"><i class="iconfont undefined"></i>
+  http
+</a></li><li class="dropdown-item"><!----> <a href="/category/git.html" class="nav-link"><i class="iconfont undefined"></i>
+  git
+</a></li><li class="dropdown-item"><!----> <a href="/category/随笔.html" class="nav-link"><i class="iconfont undefined"></i>
+  随笔
+</a></li><li class="dropdown-item"><!----> <a href="/category/每日英语.html" class="nav-link"><i class="iconfont undefined"></i>
+  每日英语
+</a></li><li class="dropdown-item"><!----> <a href="/category/typeScript学习笔记.html" class="nav-link"><i class="iconfont undefined"></i>
+  typeScript学习笔记
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  标签
+</a></div><div class="nav-item"><a href="/timeLine/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间线
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      联系我吧
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/wangjie0216" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://www.jianshu.com/u/78d745feebc2" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-jianshu"></i>
+  简书
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://mp.weixin.qq.com/s/bvtwABoGzU9GBGaqc6i7nA" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-wechat"></i>
+  WeChat
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>electron的Notification问题</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/views/js/2019/electron%E7%9A%84Notification.html#问题" class="sidebar-link">问题</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/views/js/2019/electron%E7%9A%84Notification.html#前提" class="sidebar-link">前提</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/views/js/2019/electron%E7%9A%84Notification.html#notification" class="sidebar-link">Notification</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/views/js/2019/electron%E7%9A%84Notification.html#添加点击事件" class="sidebar-link">添加点击事件</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/views/js/2019/electron%E7%9A%84Notification.html#全局方法" class="sidebar-link">全局方法</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/views/js/2019/electron%E7%9A%84Notification.html#html5的notification" class="sidebar-link">html5的notification</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li></ul> </aside> <div><main class="page reco-hide"> <div class="page-title"><h1>electron的Notification问题</h1> <hr> <div data-v-0b496ca7><i class="iconfont reco-account" data-v-0b496ca7><span data-v-0b496ca7>临渊</span></i> <i class="iconfont reco-date" data-v-0b496ca7><span data-v-0b496ca7>2019-9-9</span></i> <!----> <i class="iconfont reco-tag tags" data-v-0b496ca7><span class="tag-item" data-v-0b496ca7>
+      electron
+    </span></i></div></div> <div class="content__default"><h2 id="问题"><a href="#问题" aria-hidden="true" class="header-anchor">#</a> 问题</h2> <p>在electron的系统通知踩了坑，记录一下。</p> <h2 id="前提"><a href="#前提" aria-hidden="true" class="header-anchor">#</a> 前提</h2> <p>首先在pc端，想要electron自带的系统通知可以使用，要先注入appId。</p> <p>否则程序不会报错，通知也不会生效。</p> <p>在main.js中注入appId</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>import pkg from '../../package.json'
+const electron require('electron')
+const {app} = electron
+// 判断是否是windos电脑
+if(process.platform === 'win32') {
+    app.setAppUserModelId(pkg.build.appId)
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p>在windos下需要注入，mac下好像没问题，没mac，没测试过。</p> <p>注： 程序需要安装之后才会生效，安装之后跑dev,等环境下通知正常显示。</p> <h2 id="notification"><a href="#notification" aria-hidden="true" class="header-anchor">#</a> Notification</h2> <p>官方文档demo</p> <div class="language- line-numbers-mode"><pre class="language-text"><code> let myNotification = new Notification('标题', {
+ body: '通知正文内容'
+})
+
+myNotification.onclick = () =&gt; {
+ console.log('通知被点击')
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p>如果不能正常显示，可以尝试</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>
+ let myNotification = new window.Notification('标题', {
+  body: '通知正文内容'
+})
+
+myNotification.onclick = () =&gt; {
+  console.log('通知被点击')
+}
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><p>配置参数参考文档：<code>https://electronjs.org/docs/api/notification</code><br>
+注：一定要注意格式是否正确，标题不能和其他的参数放在一起，不能添加文档中没有的配置参数<br>
+否则在win7中可能会有bug，</p> <h2 id="添加点击事件"><a href="#添加点击事件" aria-hidden="true" class="header-anchor">#</a> 添加点击事件</h2> <p>在pc端应用最小化，点击系统通知唤醒pc端应用。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const { ipcRenderer } = require('electron')
+
+ipcRenderer.send('mainRestoreWindow')
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><p>mainRestoreWindow是定义在main.js中的方法，<br>
+我们只需要在点击的时候调用方法即可</p> <p>mainRestoreWindow函数</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 唤起窗口
+let ipcWindow = () =&gt; {
+ ipcMain.on('mainRestoreWindow', () =&gt; {
+   if (!mainWindow) {
+     createWindow()
+   } else {
+     mainWindow.show()
+     mainWindow.focus()
+   }
+ })
+}
+
+app.on('ready', () =&gt; {
+ // 获取单实例锁
+ const gotTheLock = app.requestSingleInstanceLock()
+ if (!gotTheLock) {
+   // 如果获取失败，说明已经有实例在运行了，直接退出
+   app.quit()
+ }
+ ipcWindow()
+})
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br></div></div><p>部分关键代码</p> <h2 id="全局方法"><a href="#全局方法" aria-hidden="true" class="header-anchor">#</a> 全局方法</h2> <p>在vue中，如果我们想要在js中使用vue中的methods的方法</p> <p>我们可以在mounted中把方法变成全局方法，但是要慎重使用。项目过大，</p> <p>容易造成全局污染</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>mounted () {
+     window.openLeftNews = this.showSubstanceLeft
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><h2 id="html5的notification"><a href="#html5的notification" aria-hidden="true" class="header-anchor">#</a> html5的notification</h2> <p>html5在目前也是支持系统通知的</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>if (!('Notification' in window)) {
+       return Notification(config)
+   } else if (Notification.permission === 'granted') {
+     // 检查是否同意接受通知
+     new window.Notification(config.title, notificationOption).onclick = config.onClick
+   } else if (Notification.permission !== 'denied') {
+     // 向用户获取权限
+     window.Notification.requestPermission(permission =&gt; {
+       if (permission === 'granted') {
+         // 用户同意
+         new window.Notification(config.title, notificationOption).onclick = config.onClick
+       } else {
+         Notification.closeAll()
+       }
+     })
+   }
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br></div></div></div> <!----> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated: </span> <span class="time">10/8/2019, 5:14:45 PM</span></div></footer> <!----> </main> <div class="valine-wrapper" data-v-0162251c><div id="valine" data-v-0162251c></div></div></div> <div class="back-to-ceiling" style="right:1rem;bottom:3rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;background-color:rgba(231, 234, 241,.5);display:none;" data-v-d0bfeaa4 data-v-d0bfeaa4><i class="iconfont reco-up" data-v-d0bfeaa4></i></div></div></div></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.4991ce2a.js" defer></script><script src="/assets/js/4.eb20ff82.js" defer></script><script src="/assets/js/1.c26689c7.js" defer></script><script src="/assets/js/19.7ae37306.js" defer></script>
+  </body>
+</html>
